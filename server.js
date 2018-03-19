@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-var route = require("./controllers/burger_controller");
+var route = require("./controllers/burger_controllers");
 app.use(route);
 app.listen(PORT, function(){
     console.log("Server running at " + PORT)
