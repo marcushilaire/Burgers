@@ -6,20 +6,20 @@ var burger = {
         })
     },
     create: function(values, callback){
-        orm.create(function(res){
+        orm.create(values, function(res){
             callback(res)
         })
     },
-    update: function(burgerId, callback){
-        orm.update(function(res){
+    update: function(status, burgerId, callback){
+        orm.update(status, burgerId, function(res){
             callback(res)
         })
     },
     delete: function(burgerId, callback){
-        orm.delete(function(res){
+        orm.delete(burgerId, function(res){
             callback(res)
-        })
+        });
     }
 
-}
+};
 module.exports = burger;

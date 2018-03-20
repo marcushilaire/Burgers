@@ -4,21 +4,23 @@ var orm ={
         var queryString = "SELECT * FROM burgers;";
         connection.query(queryString, function(err, result){
             if(err) throw err;
-            console.log(queryString);
+            // console.log(queryString);
             callback(result)
         })
     },
-    create: function(values, callback){
-        var queryString = "INSERT INTO burgers (burgername)";
-        queryString=+ "VALUES (" + values + ")"
+    create: function(burgerName, callback){
+        // var queryString = "INSERT INTO burgers (burgerName, devourered) ";
+        // queryString += "VALUES ("+ burgerName +", false);"
+        var queryString = "INSERT INTO burgers (burgerName) VALUES ('" + burgerName + "')"
+        console.log(queryString);
         connection.query(queryString, function(err, result){
             if(err) throw err;
-            console.log(queryString);
             callback(result)
         })
     },
-    update: function(burgerId, callback){
-        var queryString = "UPDATE burgers SET ? WHERE id = " + burgerId;
+    update: function(status, burgerId, callback){
+        var queryString = "UPDATE burgers SET devourered = "+ status + " WHERE id = " + burgerId;
+        console.log(queryString)
         connection.query(queryString,function(err, result){
             if(err) throw err;
             console.log(queryString);
