@@ -15,10 +15,11 @@
 <ul>
   {{#each burgers}}
     {{#if devourered}}
-    <li>
+    {{!-- <li>
       {{id}})
 	    {{burgerName}}
-    <li>
+    </li> --}}
+    {{> burgers/burger-block ready =false }}
     {{/if}}
   {{/each}}
 </ul>

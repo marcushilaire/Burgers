@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
     $(".burger-time").on("click", function(event) {
         var id = $(this).data("id");
         var status = $(this).data("status");
@@ -10,7 +10,9 @@ $(function(){
         $.ajax("/api/burgers/" + id, {
           type: "PUT",
           data: changeState
-        }).then(function() {
+        }).then(
+            function() {
+            console.log("you ate a burger");
             location.reload();
           }
         );
@@ -21,9 +23,10 @@ $(function(){
         $.ajax("/api/burgers/" + id ,{
             type: "DELETE",
         }).then(function(){
-            location.reload()
+            console.log("You threw away a burger");
+            location.reload();
         })
-    })
+    });
     $(".create-form").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
@@ -35,8 +38,8 @@ $(function(){
         $.ajax("/api/burgers", {
           type: "POST",
           data: newBurger
-        }).then(
-          function() {
+        }).then(function(){
+              console.log("you bought a new burger");
             location.reload();
           }
         );
